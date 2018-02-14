@@ -1,0 +1,26 @@
+
+\.idea/vcs\.xml
+
+\.idea/workspace\.xml
+
+out/artifacts/builder_pattern_jar/builder pattern\.jar
+
+out/production/builder pattern/Main\.class
+
+out/production/builder pattern/META-INF/MANIFEST\.MF
+
+out/production/builder pattern/model/User\.class
+
+out/production/builder pattern/model/UserBuilder\.class
+
+out/production/builder pattern/model/UserBuilder\$Build\.class
+
+out/production/builder pattern/model/UserBuilder\$Builder\.class
+
+out/production/builder pattern/model/UserBuilder\$SetAge\.class
+
+out/production/builder pattern/model/UserBuilder\$SetHeight\.class
+
+out/production/builder pattern/model/UserBuilder\$SetName\.class
+
+out/production/builder pattern/model/UserBuilder\$SetWeight\.class

@@ -9,7 +9,7 @@ public class User {
     private User() {
     }
 
-    protected User(String name, String age, String height, String weight) {
+    User(String name, String age, String height, String weight) {
         this.name = name;
         this.age = age;
         this.height = height;
@@ -30,5 +30,15 @@ public class User {
 
     public String getWeight() {
         return weight;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", height='" + height + '\'' +
+                ", weight='" + weight + '\'' +
+                '}';
     }
 }

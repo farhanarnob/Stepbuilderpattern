@@ -1,61 +1,70 @@
 package model;
 
 public class UserBuilder {
-    private String name = "Mr Anex";
-    private String age = "79";
-    private String height = "5\'8\"";
-    private String weight = "78";
 
     private UserBuilder() {
     }
 
-    public User build() {
-        return new User(name, age, height, weight);
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
-    public interface SetName{
-        Builder setName(String name);
+
+    public interface SetName extends Build {
+        SetAge setName(String name);
     }
 
-    public interface SetAge {
+    public interface SetAge extends SetHeight {
         SetHeight setAge(String age);
     }
 
-    public interface SetHeight {
+    public interface SetHeight extends SetWeight {
         SetWeight setHeight(String height);
 
     }
 
-    public interface SetWeight {
-        UserBuilder setWeight(String weight);
+    public interface SetWeight extends Build {
+        Build setWeight(String weight);
     }
 
-    public static class Builder implements SetName, SetAge, SetHeight, SetWeight {
+    public interface Build {
+        User build();
+    }
 
-        UserBuilder userBuilder = new UserBuilder();
+    public static class Builder implements SetName, SetAge, SetHeight, SetWeight, Build {
+
+        private String name = "Mr Anex";
+        private String age = "79";
+        private String height = "5\'8\"";
+        private String weight = "78";
 
         @Override
-        public Builder setName(String name) {
-            userBuilder.name = name;
+        public SetAge setName(String name) {
+            this.name = name;
             return this;
         }
 
         @Override
         public SetHeight setAge(String age) {
-            userBuilder.age = age;
+            this.age = age;
             return this;
         }
 
         @Override
         public SetWeight setHeight(String height) {
-            userBuilder.height = height;
+            this.height = height;
             return this;
         }
 
         @Override
-        public UserBuilder setWeight(String weight) {
-            userBuilder.weight = weight;
-            return userBuilder;
+        public Build setWeight(String weight) {
+            this.weight = weight;
+            return this;
+        }
+
+        @Override
+        public User build() {
+            return new User(name, age, height, weight);
         }
     }
 }

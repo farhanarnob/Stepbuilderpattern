@@ -3,11 +3,12 @@ import model.UserBuilder;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
-        User newUser = new UserBuilder
-                .Builder()
-                .setWeight("68")
+        User user = UserBuilder.newBuilder()
+                .setName("Arnob")
+                .setAge("25")
+                .setHeight("34")
+                .setWeight("90")
                 .build();
-        System.out.println(newUser.toString());
+        System.out.println(user.toString());
     }
 }

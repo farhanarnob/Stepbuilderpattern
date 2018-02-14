@@ -5,12 +5,12 @@ public class UserBuilder {
     private UserBuilder() {
     }
 
-    public static Builder newBuilder() {
+    public static SetName newBuilder() {
         return new Builder();
     }
 
 
-    public interface SetName extends Build {
+    public interface SetName {
         SetAge setName(String name);
     }
 

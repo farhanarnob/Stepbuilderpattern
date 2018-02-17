@@ -5,6 +5,9 @@ public class Main {
     public static void main(String[] args) {
         User user = UserBuilder.newBuilder()
                 .setName("Arnob")
+                .setAge("")
+                .setWeight("")
+                .setHeight("")
                 .build();
 //        Mandatory user Name Field. So this will not run.
 //        User user1 = UserBuilder.newBuilder()

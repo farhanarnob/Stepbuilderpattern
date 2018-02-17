@@ -15,24 +15,32 @@ public class UserBuilder {
     }
 
     public interface SetAge extends SetHeight {
-        SetHeight setAge(String age);
+        Extra setAge(String age);
     }
 
-    public interface SetHeight extends SetWeight {
-        SetWeight setHeight(String height);
+    public interface SetHeight {
+        ExtraWeightWithBuild setHeight(String height);
 
     }
 
-    public interface SetWeight extends Build {
-        Build setWeight(String weight);
+    public interface SetWeight{
+        ExtraHeightWithBuild setWeight(String weight);
     }
 
+    public interface Extra extends SetHeight, SetWeight,Build{
+
+    }
+    public interface ExtraHeightWithBuild extends SetHeight,Build{
+
+    }
+    public interface ExtraWeightWithBuild extends SetWeight,Build{
+
+    }
     public interface Build {
         User build();
     }
 
-    public static class Builder implements SetName, SetAge, SetHeight, SetWeight, Build {
-
+    public static class Builder implements SetName, SetAge, Extra, ExtraHeightWithBuild, ExtraWeightWithBuild{
         private String name = "Mr Anex";
         private String age = "79";
         private String height = "5\'8\"";
@@ -45,19 +53,19 @@ public class UserBuilder {
         }
 
         @Override
-        public SetHeight setAge(String age) {
+        public Extra setAge(String age) {
             this.age = age;
             return this;
         }
 
         @Override
-        public SetWeight setHeight(String height) {
+        public Builder setHeight(String height) {
             this.height = height;
             return this;
         }
 
         @Override
-        public Build setWeight(String weight) {
+        public ExtraHeightWithBuild setWeight(String weight) {
             this.weight = weight;
             return this;
         }
